@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,166 +169,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#2b2438;
-    --paper:#fff8ef;
-    --pink:#ffb6c9;
-    --pink-deep:#ff8fae;
-    --lilac:#cbb8ff;
-    --mint:#9ce8c9;
-    --sun:#ffd166;
-    --line: rgba(43,36,56,0.12);
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter', sans-serif;
-    line-height:1.6;
-    overflow-x:hidden;
-    position:relative;
-  }
-  h1,h2,h3,h4{ font-family:'Baloo 2', sans-serif; font-weight:700; letter-spacing:-0.01em; }
-  a{color:inherit; text-decoration:none;}
-  img{display:block; width:100%; height:100%; object-fit:cover;}
-  .wrap{max-width:1140px; margin:0 auto; padding:0 28px; position:relative;}
-  ::selection{ background:var(--pink-deep); color:#fff; }
-
-  .axo{ position:absolute; opacity:0.9; pointer-events:none; z-index:1; }
-  .axo svg{ width:100%; height:100%; display:block; }
-
-  nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(255,248,239,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:2px solid var(--ink);
-  }
-  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:78px; }
-  .logo{ display:flex; align-items:center; gap:10px; font-family:'Baloo 2',sans-serif; font-size:1.25rem; font-weight:700; }
-  .logo-icon{ width:30px; height:30px; flex-shrink:0; }
-  .navlinks{ display:flex; gap:30px; font-size:0.95rem; font-weight:600; }
-  .navlinks a:hover{ color:var(--pink-deep); }
-  .navcta{
-    background:var(--ink); color:var(--paper); font-weight:600; font-size:0.92rem;
-    padding:11px 22px; border-radius:30px; transition:transform .15s, background .2s;
-  }
-  .navcta:hover{ background:var(--pink-deep); color:var(--ink); transform:translateY(-2px); }
-
-  .hero{ position:relative; padding:80px 0 60px; overflow:hidden; }
-  .hero h1{
-    font-size:clamp(2.6rem, 6vw, 4.6rem);
-    line-height:1.05;
-    max-width:780px;
-  }
-  .hero h1 span{ color:var(--pink-deep); }
-  .hero p.lead{
-    margin-top:24px; max-width:480px; font-size:1.1rem; color:rgba(43,36,56,0.78);
-  }
-  .hero-actions{ display:flex; gap:16px; margin-top:34px; flex-wrap:wrap;}
-  .btn-primary{
-    background:var(--pink-deep); color:var(--ink); font-weight:700; padding:15px 28px;
-    border-radius:30px; font-size:0.98rem; border:2px solid var(--ink);
-    transition:transform .15s, background .2s; display:inline-block;
-    box-shadow:4px 4px 0 var(--ink);
-  }
-  .btn-primary:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); }
-  .btn-ghost{
-    border:2px solid var(--ink); padding:15px 28px; border-radius:30px; font-size:0.98rem;
-    font-weight:700; transition:background .2s, transform .15s;
-  }
-  .btn-ghost:hover{ background:var(--mint); transform:translate(-2px,-2px); }
-
-  .hero-art{
-    margin-top:60px; border:2px solid var(--ink); border-radius:20px; overflow:hidden;
-    aspect-ratio:16/7; position:relative; background:var(--lilac);
-  }
-
-  section{ padding:90px 0; border-top:2px dashed var(--line); position:relative; }
-  .tag{
-    font-family:'Baloo 2', sans-serif; font-size:0.85rem; color:var(--pink-deep);
-    text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px; display:inline-block;
-    background:var(--paper); border:2px solid var(--ink); padding:5px 14px; border-radius:20px;
-  }
-  .section-head{ max-width:600px; margin-bottom:54px; }
-  .section-head h2{ font-size:clamp(1.9rem, 3.6vw, 2.6rem); }
-  .section-head p{ margin-top:16px; color:rgba(43,36,56,0.72); font-size:1.05rem; }
-
-  .about{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-  .about-img{ border-radius:20px; overflow:hidden; aspect-ratio:4/5; border:2px solid var(--ink); }
-  .about-copy p{ color:rgba(43,36,56,0.78); margin-bottom:16px; font-size:1.04rem; }
-  .about-copy p strong{ color:var(--ink); }
-
-  .machine{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-  .machine-img{ border-radius:20px; overflow:hidden; aspect-ratio:1/1; border:2px solid var(--ink); }
-  .machine-copy p{ color:rgba(43,36,56,0.78); font-size:1.04rem; margin-bottom:16px; max-width:480px; }
-
-  .reviews-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-  .review{
-    background:#fff; border:2px solid var(--ink); border-radius:18px; padding:26px 24px;
-    transition:transform .2s, box-shadow .2s;
-  }
-  .review:hover{ transform:translateY(-4px); box-shadow:5px 5px 0 var(--ink); }
-  .review .stars{ color:var(--pink-deep); font-size:1.1rem; letter-spacing:3px; }
-  .review p{ margin-top:14px; font-size:0.97rem; color:rgba(43,36,56,0.82); line-height:1.5; }
-  .review .who{ margin-top:18px; font-family:'Baloo 2',sans-serif; font-size:0.85rem; color:var(--gray); font-weight:600; }
-  @media (max-width: 880px){ .reviews-grid{ grid-template-columns:1fr; } }
-
-  .process{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-  .pstep{ background:#fff; border:2px solid var(--ink); border-radius:18px; padding:28px 24px; }
-  .pstep h4{ font-size:1.1rem; }
-  .pstep p{ margin-top:10px; font-size:0.92rem; color:rgba(43,36,56,0.66); }
-
-  .gallery{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-  .gallery-item{ border-radius:16px; overflow:hidden; border:2px solid var(--ink); background:#fff; }
-  .gallery-item .gimg{ aspect-ratio:1/1; }
-  .gallery-item .gcap{ padding:10px 14px; font-family:'Baloo 2',sans-serif; font-size:0.88rem; font-weight:600; border-top:2px solid var(--ink); }
-  .gallery-item:nth-child(3),.gallery-item:nth-child(6){ margin-top:24px; }
-  @media (max-width: 880px){ .gallery{ grid-template-columns:repeat(2,1fr); } }
-  @media (max-width: 540px){ .gallery{ grid-template-columns:repeat(2,1fr); } }
-
-  .contact{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
-  .contact-copy h2{ font-size:clamp(1.9rem,3.4vw,2.5rem); }
-  .contact-copy p{ margin-top:16px; color:rgba(43,36,56,0.72); max-width:420px; }
-  .contact-list{ margin-top:30px; }
-  .contact-list .row{ display:flex; gap:14px; padding:14px 0; border-top:2px dashed var(--line); font-size:0.95rem; }
-  .contact-list .row:last-child{ border-bottom:2px dashed var(--line); }
-  .contact-list .row .k{ color:var(--pink-deep); font-weight:700; width:90px; flex-shrink:0; font-family:'Baloo 2',sans-serif; font-size:0.85rem; padding-top:2px;}
-  .contact-cta{ display:flex; align-items:center; justify-content:center; }
-  .btn-large{
-    display:inline-block; width:100%; text-align:center;
-    background:var(--pink-deep); color:var(--ink); border:2px solid var(--ink);
-    padding:28px 32px; border-radius:20px; font-family:'Baloo 2',sans-serif;
-    font-weight:700; font-size:1.4rem;
-    box-shadow:6px 6px 0 var(--ink);
-    transition:transform .15s, box-shadow .2s, background .2s;
-  }
-  .btn-large:hover{ transform:translate(-3px,-3px); box-shadow:9px 9px 0 var(--ink); background:var(--mint); }
-  footer{ border-top:2px solid var(--ink); padding:44px 0; background:var(--lilac); }
-  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
-  footer .small{ font-size:0.85rem; color:rgba(43,36,56,0.7); }
-  .footlinks{ display:flex; gap:24px; font-size:0.9rem; font-weight:600; }
-
-  @media (max-width: 880px){
-    .navlinks{ display:none; }
-    .about, .machine, .contact{ grid-template-columns:1fr; }
-    .grid{ grid-template-columns:repeat(2,1fr); }
-    .process{ grid-template-columns:1fr 1fr; }
-    .strip{ grid-template-columns:repeat(3,1fr); }
-    .strip-item:nth-child(4),.strip-item:nth-child(5){ display:none; }
-    .axo{ display:none; }
-  }
-  @media (max-width: 540px){
-    .grid{ grid-template-columns:1fr; }
-    .process{ grid-template-columns:1fr; }
-    .strip{ grid-template-columns:repeat(2,1fr); }
-  }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    *{ transition:none !important; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -374,11 +216,11 @@
     <h1>3D printed things, made one <span>squishy little layer</span> at a time.</h1>
     <p class="lead">Hi, I'm Jobe - a one-person workshop running a Bambu Lab A1 and a P1S. I print fidget toys, handy little items for around the home, and products that make daily life easier. Want something custom made? Get in touch.</p>
     <div class="hero-actions">
-      <a href="#shop" class="btn-primary">Browse the shop</a>
+      <!--<a href="#shop" class="btn-primary">Browse the shop</a> -->
       <a href="#contact" class="btn-ghost">Ask for a custom print</a>
     </div>
     <div class="hero-art">
-      <img src="/images/hero-printer-axolotl.jpg" alt="Jobe - Print Lab - Bambu Lab A1 mini 3D printer printing a pink axolotl on the build plate">
+      <img src="images/hero-printer-axolotl.jpg" alt="Jobe - Print Lab - Bambu Lab A1 mini 3D printer printing a pink axolotl on the build plate">
     </div>
   </div>
 </header>
@@ -387,7 +229,7 @@
   <div class="axo" style="top:30px; right:-2%; width:70px; transform:rotate(15deg);"><svg viewBox="0 0 120 90"><use href="#axolotl"/></svg></div>
   <div class="wrap about">
     <div class="about-img">
-      <img src="/images/about-jm-desk.jpg" alt="JM at his desk with the Bambu Lab A1 mini surrounded by axolotls">
+      <img src="images/about-jm-desk.jpg" alt="JM at his desk with the Bambu Lab A1 mini surrounded by axolotls">
     </div>
     <div class="about-copy">
       <span class="tag">The workshop</span>
@@ -402,7 +244,7 @@
   <div class="axo" style="bottom:10px; left:-2%; width:70px; transform:rotate(-12deg) scaleX(-1);"><svg viewBox="0 0 120 90"><use href="#axolotl"/></svg></div>
   <div class="wrap machine">
     <div class="machine-img">
-      <img src="/images/machine-planning-jbprintlab.jpg" alt="Planning next prints with the Bambu Lab A1 mini JB Print Lab">
+      <img src="images/machine-planning-jbprintlab.jpg" alt="Planning next prints with the Bambu Lab A1 mini JB Print Lab">
     </div>
     <div class="machine-copy">
       <span class="tag">The machine</span>
@@ -531,7 +373,7 @@
       <p>Send some rough dimensions, a reference photo, or just describe the problem. Most custom quotes go out within a day.</p>
       <div class="contact-list">
         <div class="row"><span class="k">Email</span><span>Coming Soon</span></div>
-        <div class="row"><span class="k">Based in</span><span>Bendigo, VictoriaBased in</span><span>Bendigo, Victoria. Shipping to wherever you are!</span></div>
+        <div class="row"><span class="k">Based in</span><span>Bendigo, Victoria</span><span>Shipping to wherever you are!</span></div>
       </div>
     </div>
     
@@ -553,7 +395,7 @@
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </div>
-    <span class="small">© 2026 JM Print Lab · Powered by <a href="https://cmather.com/">CMather</a></span>
+    <span class="small">© 2026 JM Print Lab · <br>Powered by <a href="https://cmather.com/">CMather</a><br>Designed by Tobias</span>
   </div>
 </footer>
 
